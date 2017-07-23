@@ -1,5 +1,6 @@
 export { CarritoPage } from './carrito/carrito';
 export { CategoriasPage } from './categorias/categorias';
+export { HomePage } from './home/home';
 export { LoginPage } from './login/login';
 export { OrdenesPage } from './ordenes/ordenes';
 export { OrdenesDetallePage } from './ordenes-detalle/ordenes-detalle';
