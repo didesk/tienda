@@ -24,6 +24,9 @@ import { CarritoPage,
          TabsPage 
       } from '../pages/index.paginas';
 
+//Storage
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +44,8 @@ import { CarritoPage,
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
