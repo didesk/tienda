@@ -17,20 +17,30 @@ export class ProductosProvider {
   }
 
   cargarTodos(){
-    let url = `${URL_SERVICIOS}/productos/todos/${this.pagina}`;
 
-    this.http.get( url )
-      .map( res => res.json() )
-      .subscribe( data => {
-        console.log(data);
-        if( data.error ){
-          //aqui hay un problema
+    let promesa = new Promise( (resolve, reject)=>{
 
-        } else {
-          this.productos.push(...data.productos);
-          this.pagina += 1;
-        }
-      })
+      let url = `${URL_SERVICIOS}/productos/todos/${this.pagina}`;
+
+      this.http.get( url )
+        .map( res => res.json() )
+        .subscribe( data => {
+          console.log(data);
+          if( data.error ){
+            //aqui hay un problema
+
+          } else {
+            this.productos.push(...data.productos);
+            this.pagina += 1;
+          }
+
+          resolve();
+
+        })
+
+    });
+    return promesa;
+
 
   }
 

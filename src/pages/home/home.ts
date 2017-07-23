@@ -14,5 +14,10 @@ export class HomePage {
    
 
   }
+  siguientePagina( infiniteScroll ){
+    this.productosProvider.cargarTodos().then( ()=> {
+      infiniteScroll.complete();
+    })
+  }
 
 }
