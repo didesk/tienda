@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CarritoProvider } from './../../providers/carrito/carrito';
 
-/**
- * Generated class for the ProductoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 
 @Component({
   selector: 'page-producto',
@@ -16,7 +12,7 @@ export class ProductoPage {
 
   producto: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor( public navCtrl: NavController, public navParams: NavParams, private carritoProvider: CarritoProvider ) {
   }
 
   ionViewDidLoad() {

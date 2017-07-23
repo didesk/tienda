@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 
 import { ProductosProvider } from './../../providers/productos/productos';
 import { ProductoPage } from './../producto/producto';
+import { CarritoProvider } from './../../providers/carrito/carrito';
+
 
 
 
@@ -14,7 +16,9 @@ export class HomePage {
 
   productoPage = ProductoPage;
 
-  constructor(public navCtrl: NavController, private productosProvider: ProductosProvider) {
+  constructor(public navCtrl: NavController, 
+              private productosProvider: ProductosProvider, 
+              private carritoProvider: CarritoProvider ) {
 
    
 

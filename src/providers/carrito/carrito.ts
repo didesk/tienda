@@ -1,18 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AlertController } from 'ionic-angular';
 
-/*
-  Generated class for the CarritoProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
+
+
 @Injectable()
 export class CarritoProvider {
 
-  constructor(public http: Http) {
+  items: any[] = [];
+
+  constructor(public http: Http, private alertCtrl: AlertController ) {
     console.log('Hello CarritoProvider Provider');
+  }
+
+  agregarCarrito( itemParametro: any ){
+    
+    for(let item of this.items ){
+      if(item.codigo === itemParametro.codigo ){
+        this.alertCtrl.create({
+          title: 'Item Existe',
+          subTitle: `${itemParametro.producto} ya se encuentra en el carrito de compras`,
+          buttons: ['Ok']
+        }).present();
+        return;
+
+      }
+    }
+
+    this.items.push( itemParametro );
   }
 
 }
