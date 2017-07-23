@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row *ngFor="let pares of productosProvider.productos">
       <ion-col *ngFor="let item of pares">
-        <img src="http://localhost/rest/public/img/productos/{{item.codigo}}.jpg" alt="">
+        <img [src]="item.codigo | imagen" alt="">
         <p>
           {{item.producto}} 
           <br>
