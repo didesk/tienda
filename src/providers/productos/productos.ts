@@ -11,11 +11,24 @@ export class ProductosProvider {
   pagina: number = 0;
   productos: any[] = []; 
   lineas: any[] = [];
+  porCategoria: any[] = [];
 
   constructor(public http: Http) {
     // console.log('Hello ProductosProvider Provider');
     this.cargarTodos();
     this.cargarLineas();
+  }
+
+  cargarPorCategoria( categoria: number ){
+
+    let url = URL_SERVICIOS + '/productos/por_tipo/' + categoria;
+
+    this.http.get( url ).map( resp => resp.json() ).subscribe( data => {
+      console.log(data.productos);
+      this.porCategoria = data.productos;
+    })
+
+
   }
 
   cargarLineas(){
