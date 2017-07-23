@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AlertController, Platform } from 'ionic-angular';
+import { AlertController, Platform, ModalController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
+
+import { UsuarioProvider } from './../usuario/usuario';
+
+//paginas modal
+import { LoginPage, CarritoPage } from './../../pages/index.paginas';
+
 
 
 @Injectable()
@@ -14,7 +20,9 @@ export class CarritoProvider {
   constructor( public http: Http, 
                private alertCtrl: AlertController, 
                private platform: Platform,
-               private storage: Storage ) {
+               private storage: Storage,
+               private usuarioProvider: UsuarioProvider,
+               private modalCtrl: ModalController ) {
 
     console.log('Hello CarritoProvider Provider');
     this.cargarStorage();
@@ -85,6 +93,29 @@ export class CarritoProvider {
 
     return promesa;
 
+
+  }
+
+  verCarrito() {
+
+    let modal: any;
+    
+    if( this.usuarioProvider.token ){
+      //mostrar pagina carrito
+      modal = this.modalCtrl.create( CarritoPage );
+    } else {
+      //mostrar el login
+      modal = this.modalCtrl.create( LoginPage );
+    }
+
+    modal.present();
+    
+    modal.onDidDismiss( (abrirCarrito: boolean)=> {
+      if( abrirCarrito ) {
+        this.modalCtrl.create( CarritoPage );
+      }
+    })
+    
 
   }
 
