@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CategoriasPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { ProductosProvider } from './../../providers/productos/productos';
+
+import { PorCategoriasPage } from './../por-categorias/por-categorias';
+
+
+
 
 @Component({
   selector: 'page-categorias',
@@ -14,11 +14,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CategoriasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  porCategoriaPage = PorCategoriasPage;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private productosProvider: ProductosProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
-  }
+  
 
 }
