@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons>
+      <button ion-button (click)="usuarioProvider.cerrarSesion()" *ngIf="usuarioProvider.activo()">
+        salir
+      </button>
+    </ion-buttons>
     <ion-title>
       Tienda
     </ion-title>

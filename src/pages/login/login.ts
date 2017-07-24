@@ -21,7 +21,9 @@ export class LoginPage {
 
   ingresar(){
     this.usuarioProvider.ingresar( this.correo, this.contrasena ).subscribe( ()=>{
-      
+      if( this.usuarioProvider.activo()){
+        this.viewCtrl.dismiss(true);
+      }
     });
   }
 

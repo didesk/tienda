@@ -112,7 +112,7 @@ export class CarritoProvider {
     
     modal.onDidDismiss( (abrirCarrito: boolean)=> {
       if( abrirCarrito ) {
-        this.modalCtrl.create( CarritoPage );
+        this.modalCtrl.create( CarritoPage ).present();
       }
     })
     

@@ -5,6 +5,9 @@ import { ProductosProvider } from './../../providers/productos/productos';
 import { ProductoPage } from './../producto/producto';
 import { CarritoProvider } from './../../providers/carrito/carrito';
 
+import { UsuarioProvider } from './../../providers/usuario/usuario';
+
+
 
 
 
@@ -18,7 +21,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
               private productosProvider: ProductosProvider, 
-              private carritoProvider: CarritoProvider ) {
+              private carritoProvider: CarritoProvider,
+              private usuarioProvider: UsuarioProvider ) {
 
    
 
